@@ -24,7 +24,7 @@ Date: 20260612
 ## 開發 Phase 2：資料層與後台
 
 - [x] `src/lib/db.ts` D1 查詢 helpers
-- [ ] 文章 CRUD API（`/api/posts`，已完成 create/list，尚缺 update/delete）
+- [ ] 文章 CRUD API（`/api/posts`，已完成 create/list/update，尚缺 delete）
 - [x] 認證 API + middleware（`/api/auth/login`）
 - [x] Editor.js 整合（`/admin/posts/new`）
 - [ ] R2 圖片上傳（`/api/media`）
@@ -46,5 +46,5 @@ Date: 20260612
 ## 本週優先
 
 1. 完成 Phase 1 驗證（dev server + D1 local）
-2. 補齊文章編輯 / 更新 API
-3. 實作 R2 圖片上傳（給 Editor.js image block）
+2. 實作 R2 圖片上傳（給 Editor.js image block）
+3. 開始前台文章頁渲染

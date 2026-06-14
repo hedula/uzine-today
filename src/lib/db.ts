@@ -62,6 +62,16 @@ export async function getPostBySlug(
     .first<Post>();
 }
 
+export async function getPostById(
+  db: D1Database,
+  id: string,
+): Promise<Post | null> {
+  return await db
+    .prepare('SELECT * FROM posts WHERE id = ? LIMIT 1')
+    .bind(id)
+    .first<Post>();
+}
+
 export async function createPost(
   db: D1Database,
   input: CreatePostInput,
@@ -84,6 +94,32 @@ export async function createPost(
       input.author_id,
       input.status,
       input.published_at,
+    )
+    .run();
+}
+
+export async function updatePost(
+  db: D1Database,
+  id: string,
+  input: Omit<CreatePostInput, 'id' | 'author_id'>,
+): Promise<void> {
+  await db
+    .prepare(
+      `UPDATE posts
+       SET slug = ?, title = ?, summary = ?, content_json = ?, cover_image_url = ?,
+           category_id = ?, status = ?, published_at = ?, updated_at = datetime('now')
+       WHERE id = ?`,
+    )
+    .bind(
+      input.slug,
+      input.title,
+      input.summary,
+      input.content_json,
+      input.cover_image_url,
+      input.category_id,
+      input.status,
+      input.published_at,
+      id,
     )
     .run();
 }
