@@ -1,0 +1,28 @@
+---
+export const prerender = true;
+
+const siteTitle = '隅誌今時';
+const siteDescription = 'uZine Today — 輕量內容出版平台';
+---
+
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{siteTitle}</title>
+    <meta name="description" content={siteDescription} />
+  </head>
+  <body class="min-h-screen bg-stone-50 text-stone-900">
+    <main class="mx-auto max-w-3xl px-6 py-16">
+      <h1 class="text-3xl font-bold tracking-tight">{siteTitle}</h1>
+      <p class="mt-4 text-stone-600">{siteDescription}</p>
+      <p class="mt-8 text-sm text-stone-500">
+        前台骨架已就緒。文章列表將於開發 Phase 3 串接 D1。
+      </p>
+      <nav class="mt-8 flex gap-4 text-sm">
+        <a class="underline" href="/about">關於</a>
+        <a class="underline" href="/admin">後台</a>
+      </nav>
+    </main>
+  </body>
+</html>
