@@ -61,3 +61,16 @@ export interface PostListItem {
   category_slug: string | null;
   category_name: string | null;
 }
+
+export interface CreatePostInput {
+  id: string;
+  slug: string;
+  title: string;
+  summary: string | null;
+  content_json: string;
+  cover_image_url: string | null;
+  category_id: string | null;
+  author_id: string | null;
+  status: PostStatus;
+  published_at: string | null;
+}

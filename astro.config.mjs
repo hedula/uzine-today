@@ -8,9 +8,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'hybrid',
+  output: 'server',
   adapter: cloudflare({
     mode: 'directory',
+    sessionKVBindingName: 'CACHE',
     platformProxy: {
       enabled: true,
     },

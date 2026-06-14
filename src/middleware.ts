@@ -6,13 +6,12 @@ const PUBLIC_ADMIN_PATHS = ['/admin/login'];
 export const onRequest = defineMiddleware(async (context, next) => {
   const { pathname } = context.url;
   const isAdmin = pathname.startsWith('/admin');
-  const isApiWrite =
+  const isProtectedApi =
     pathname.startsWith('/api/') &&
     !pathname.startsWith('/api/health') &&
-    !pathname.startsWith('/api/auth/login') &&
-    context.request.method !== 'GET';
+    !pathname.startsWith('/api/auth/login');
 
-  if (!isAdmin && !isApiWrite) {
+  if (!isAdmin && !isProtectedApi) {
     return next();
   }
 
